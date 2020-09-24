@@ -10,9 +10,14 @@
 		4079DAFC251C219E00C2906A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DAFB251C219E00C2906A /* AppDelegate.swift */; };
 		4079DAFE251C219E00C2906A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DAFD251C219E00C2906A /* SceneDelegate.swift */; };
 		4079DB00251C219E00C2906A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DAFF251C219E00C2906A /* ViewController.swift */; };
-		4079DB03251C219E00C2906A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4079DB01251C219E00C2906A /* Main.storyboard */; };
 		4079DB05251C21A000C2906A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4079DB04251C21A000C2906A /* Assets.xcassets */; };
 		4079DB08251C21A000C2906A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4079DB06251C21A000C2906A /* LaunchScreen.storyboard */; };
+		4079DB19251C26FC00C2906A /* CustomAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DB18251C26FC00C2906A /* CustomAlertController.swift */; };
+		4079DB1B251C273500C2906A /* AlertContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DB1A251C273500C2906A /* AlertContainer.swift */; };
+		4079DB1E251C278B00C2906A /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DB1D251C278B00C2906A /* TitleLabel.swift */; };
+		4079DB20251C27C600C2906A /* BodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DB1F251C27C600C2906A /* BodyLabel.swift */; };
+		4079DB22251C283900C2906A /* SecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DB21251C283900C2906A /* SecondaryTitleLabel.swift */; };
+		4079DB24251C287C00C2906A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DB23251C287C00C2906A /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +25,15 @@
 		4079DAFB251C219E00C2906A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4079DAFD251C219E00C2906A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4079DAFF251C219E00C2906A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4079DB02251C219E00C2906A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4079DB04251C21A000C2906A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4079DB07251C21A000C2906A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4079DB09251C21A000C2906A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4079DB18251C26FC00C2906A /* CustomAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertController.swift; sourceTree = "<group>"; };
+		4079DB1A251C273500C2906A /* AlertContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertContainer.swift; sourceTree = "<group>"; };
+		4079DB1D251C278B00C2906A /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		4079DB1F251C27C600C2906A /* BodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyLabel.swift; sourceTree = "<group>"; };
+		4079DB21251C283900C2906A /* SecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTitleLabel.swift; sourceTree = "<group>"; };
+		4079DB23251C287C00C2906A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +66,100 @@
 		4079DAFA251C219E00C2906A /* PullRequestsDiffs */ = {
 			isa = PBXGroup;
 			children = (
-				4079DAFB251C219E00C2906A /* AppDelegate.swift */,
-				4079DAFD251C219E00C2906A /* SceneDelegate.swift */,
+				4079DB1C251C277200C2906A /* Labels */,
+				4079DB0F251C243E00C2906A /* Service */,
+				4079DB10251C244900C2906A /* Model */,
+				4079DB12251C246100C2906A /* ViewModel */,
+				4079DB11251C245A00C2906A /* Views */,
+				4079DB13251C246700C2906A /* Controllers */,
+				4079DB17251C24B900C2906A /* Alerts */,
+				4079DB16251C24B200C2906A /* Buttons */,
+				4079DB15251C248D00C2906A /* Utilities */,
+				4079DB14251C247A00C2906A /* Support */,
 				4079DAFF251C219E00C2906A /* ViewController.swift */,
-				4079DB01251C219E00C2906A /* Main.storyboard */,
-				4079DB04251C21A000C2906A /* Assets.xcassets */,
 				4079DB06251C21A000C2906A /* LaunchScreen.storyboard */,
 				4079DB09251C21A000C2906A /* Info.plist */,
 			);
 			path = PullRequestsDiffs;
+			sourceTree = "<group>";
+		};
+		4079DB0F251C243E00C2906A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		4079DB10251C244900C2906A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4079DB11251C245A00C2906A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4079DB12251C246100C2906A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4079DB13251C246700C2906A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4079DB14251C247A00C2906A /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				4079DAFD251C219E00C2906A /* SceneDelegate.swift */,
+				4079DAFB251C219E00C2906A /* AppDelegate.swift */,
+				4079DB04251C21A000C2906A /* Assets.xcassets */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		4079DB15251C248D00C2906A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		4079DB16251C24B200C2906A /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				4079DB23251C287C00C2906A /* CustomButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		4079DB17251C24B900C2906A /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				4079DB18251C26FC00C2906A /* CustomAlertController.swift */,
+				4079DB1A251C273500C2906A /* AlertContainer.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		4079DB1C251C277200C2906A /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				4079DB1D251C278B00C2906A /* TitleLabel.swift */,
+				4079DB1F251C27C600C2906A /* BodyLabel.swift */,
+				4079DB21251C283900C2906A /* SecondaryTitleLabel.swift */,
+			);
+			path = Labels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +222,6 @@
 			files = (
 				4079DB08251C21A000C2906A /* LaunchScreen.storyboard in Resources */,
 				4079DB05251C21A000C2906A /* Assets.xcassets in Resources */,
-				4079DB03251C219E00C2906A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +232,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4079DB1B251C273500C2906A /* AlertContainer.swift in Sources */,
+				4079DB20251C27C600C2906A /* BodyLabel.swift in Sources */,
+				4079DB24251C287C00C2906A /* CustomButton.swift in Sources */,
 				4079DB00251C219E00C2906A /* ViewController.swift in Sources */,
+				4079DB19251C26FC00C2906A /* CustomAlertController.swift in Sources */,
+				4079DB1E251C278B00C2906A /* TitleLabel.swift in Sources */,
 				4079DAFC251C219E00C2906A /* AppDelegate.swift in Sources */,
+				4079DB22251C283900C2906A /* SecondaryTitleLabel.swift in Sources */,
 				4079DAFE251C219E00C2906A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +247,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4079DB01251C219E00C2906A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4079DB02251C219E00C2906A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4079DB06251C21A000C2906A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
