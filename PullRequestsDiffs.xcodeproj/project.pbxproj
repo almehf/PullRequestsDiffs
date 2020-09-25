@@ -21,6 +21,10 @@
 		4079DB26251C2DDB00C2906A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DB25251C2DDB00C2906A /* Service.swift */; };
 		4079DB28251C2E1F00C2906A /* Pulls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DB27251C2E1F00C2906A /* Pulls.swift */; };
 		4079DB2A251C429100C2906A /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DB29251C429100C2906A /* ErrorMessage.swift */; };
+		4079DB2C251C47E400C2906A /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DB2B251C47E400C2906A /* UIViewController+Ext.swift */; };
+		4079DB2E251C483B00C2906A /* PullsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DB2D251C483B00C2906A /* PullsViewModel.swift */; };
+		4079DB30251D061100C2906A /* PullRequestsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DB2F251D061100C2906A /* PullRequestsTableView.swift */; };
+		4079DB32251D065200C2906A /* PullRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DB31251D065200C2906A /* PullRequestCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		4079DB25251C2DDB00C2906A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		4079DB27251C2E1F00C2906A /* Pulls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pulls.swift; sourceTree = "<group>"; };
 		4079DB29251C429100C2906A /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		4079DB2B251C47E400C2906A /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		4079DB2D251C483B00C2906A /* PullsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullsViewModel.swift; sourceTree = "<group>"; };
+		4079DB2F251D061100C2906A /* PullRequestsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsTableView.swift; sourceTree = "<group>"; };
+		4079DB31251D065200C2906A /* PullRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,7 @@
 			children = (
 				4079DAFA251C219E00C2906A /* PullRequestsDiffs */,
 				4079DAF9251C219E00C2906A /* Products */,
+				ED0E24F69B35CF4DBA103AD6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +117,8 @@
 		4079DB11251C245A00C2906A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4079DB2B251C47E400C2906A /* UIViewController+Ext.swift */,
+				4079DB31251D065200C2906A /* PullRequestCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -115,6 +126,7 @@
 		4079DB12251C246100C2906A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4079DB2D251C483B00C2906A /* PullsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -122,6 +134,7 @@
 		4079DB13251C246700C2906A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4079DB2F251D061100C2906A /* PullRequestsTableView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -171,6 +184,13 @@
 			path = Labels;
 			sourceTree = "<group>";
 		};
+		ED0E24F69B35CF4DBA103AD6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -203,6 +223,7 @@
 				TargetAttributes = {
 					4079DAF7251C219E00C2906A = {
 						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1160;
 					};
 				};
 			};
@@ -244,11 +265,15 @@
 				4079DB28251C2E1F00C2906A /* Pulls.swift in Sources */,
 				4079DB1B251C273500C2906A /* AlertContainer.swift in Sources */,
 				4079DB20251C27C600C2906A /* BodyLabel.swift in Sources */,
+				4079DB2E251C483B00C2906A /* PullsViewModel.swift in Sources */,
+				4079DB2C251C47E400C2906A /* UIViewController+Ext.swift in Sources */,
 				4079DB24251C287C00C2906A /* CustomButton.swift in Sources */,
+				4079DB32251D065200C2906A /* PullRequestCell.swift in Sources */,
 				4079DB2A251C429100C2906A /* ErrorMessage.swift in Sources */,
 				4079DB00251C219E00C2906A /* ViewController.swift in Sources */,
 				4079DB19251C26FC00C2906A /* CustomAlertController.swift in Sources */,
 				4079DB1E251C278B00C2906A /* TitleLabel.swift in Sources */,
+				4079DB30251D061100C2906A /* PullRequestsTableView.swift in Sources */,
 				4079DAFC251C219E00C2906A /* AppDelegate.swift in Sources */,
 				4079DB26251C2DDB00C2906A /* Service.swift in Sources */,
 				4079DB22251C283900C2906A /* SecondaryTitleLabel.swift in Sources */,
@@ -388,6 +413,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B66ANGU77M;
 				INFOPLIST_FILE = PullRequestsDiffs/Info.plist;
@@ -397,6 +423,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.almehf.PullRequestsDiffs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -406,6 +433,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B66ANGU77M;
 				INFOPLIST_FILE = PullRequestsDiffs/Info.plist;

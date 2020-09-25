@@ -12,9 +12,10 @@ class Service {
     
     static let shared = Service()
     private let baseURL = "https://api.github.com/repos/magicalpanda/MagicalRecord/pulls"
+    private let secondUrl = "https://api.github.com/repos/magicalpanda/MagicalRecord/pulls?state=all"
 
     func getPulls(completionHandler: @escaping (Result<[Pulls], PRError>) -> Void) {
-        let endpoint = baseURL
+        let endpoint = secondUrl
         
         guard let url = URL(string: endpoint) else {
             completionHandler(.failure(.invalidUrl))
