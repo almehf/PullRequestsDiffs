@@ -1,3 +1,3 @@
 # PullRequestsDiffs
  
- ![](images/screenShotOne.png)
+ ![](/images/image1.png)
