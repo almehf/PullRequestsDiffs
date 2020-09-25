@@ -8,7 +8,8 @@
 
 import UIKit
 
-class DiffCustomCell: UICollectionViewCell {
+class DiffCustomCell: BaseCell {
+    
     let infoView = UIView()
     var scrollViewBefore = UIScrollView()
     var scrollViewAfter = UIScrollView()
@@ -23,11 +24,16 @@ class DiffCustomCell: UICollectionViewCell {
     let patch = UITextView()
     var beforeAdj : [String] = []
     var afterAdj : [String] = []
+    let customGrayColor = UIColor.rgb(r: 249, g: 250, b: 251)
     
     lazy var collectionViewBefore: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = customGrayColor
+        cv.layer.cornerRadius = 5
+        cv.layer.borderColor = UIColor.gray.cgColor
+        cv.layer.borderWidth = 1
         return cv
     }()
     
@@ -35,18 +41,14 @@ class DiffCustomCell: UICollectionViewCell {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = customGrayColor
+        cv.layer.cornerRadius = 5
+        cv.layer.borderColor = UIColor.gray.cgColor
+        cv.layer.borderWidth = 1
         return cv
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame : frame)
-        layoutUI()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+     
     
     func set (Diff : DiffsViewModel){
         fileName.text =  "File Name : " + Diff.filename
@@ -71,14 +73,15 @@ class DiffCustomCell: UICollectionViewCell {
                 beforeAdj.append(i)
 
             }
-            
         }
-        
-
-
     }
-    func layoutUI(){
-        
+    
+    override func setupViews() {
+        setupLayout()
+    }
+    
+    
+    func setupLayout(){
         
         let views = [infoView,scrollViewAfter,fileName,additions,deletions,changes,codeViewAfter,codeViewBefore,patch,collectionViewAfter,scrollViewBefore,collectionViewBefore]
         for view in views{
@@ -155,10 +158,7 @@ class DiffCustomCell: UICollectionViewCell {
             collectionViewBefore.leadingAnchor.constraint(equalTo: scrollViewBefore.leadingAnchor ),
             collectionViewBefore.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionViewBefore.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            
-            
-
-            
+ 
         ])
         
         
@@ -191,12 +191,7 @@ class DiffCustomCell: UICollectionViewCell {
         layer.masksToBounds = false
         backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
         
-
     }
-    
-    
-    
-    
     
 }
 
@@ -224,7 +219,6 @@ extension DiffCustomCell : UICollectionViewDataSource ,UIScrollViewDelegate{
 
             }
             
-            
             return cell
         }
         else {
@@ -237,14 +231,7 @@ extension DiffCustomCell : UICollectionViewDataSource ,UIScrollViewDelegate{
 
             }
             return cell
-            
         }
-
-
-        
-        
     }
-    
-
 }
 

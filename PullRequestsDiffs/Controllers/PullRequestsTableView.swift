@@ -44,9 +44,11 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
         }
     }
     
+    
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 100))
- 
+        
         
         headerView.backgroundColor = UIColor.rgb(r: 50, g: 147, b: 234)
         let label = UILabel()
@@ -56,7 +58,7 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
         label.textColor = UIColor.white
         label.font = UIFont.boldSystemFont(ofSize: 18)
         
-       
+        
         headerView.addSubview(label)
         label.anchor(top: headerView.topAnchor, leading: headerView.leadingAnchor, bottom: nil, trailing: headerView.trailingAnchor, padding: .init(top: 6, left: 6, bottom: 6, right: 6), size: .zero)
         
@@ -72,6 +74,7 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
         segementedController.translatesAutoresizingMaskIntoConstraints = false
         segementedController.layer.cornerRadius = 10
         segementedController.layer.borderWidth = 1
+        segementedController.selectedSegmentIndex = 0
         segementedController.backgroundColor = .white
         segementedController.layer.borderColor = UIColor.darkGray.cgColor
         headerView.addSubview(segementedController)
@@ -111,26 +114,6 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
         tableView.reloadData()
     }
     
- 
-    // Show diffs when tapped
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("didSelect")
-        
-        
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredPullRequests.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! PullRequestsCell
-        
-        let pullRequest = filteredPullRequests[indexPath.item]
-        cell.pullRequest = pullRequest
-        
-        return cell
-    }
     
     fileprivate func setupTableView() {
         tableView.register(PullRequestsCell.self, forCellReuseIdentifier: cellId)
@@ -159,14 +142,34 @@ class CustomNavigationController: UINavigationController {
         return .lightContent
     }
 }
-
-extension UIColor {
-    static let mainTextBlue = UIColor.rgb(r: 7, g: 71, b: 89)
-    static let highlightColor = UIColor.rgb(r: 50, g: 199, b: 242)
+ 
+extension PullRequestsTableView {
     
-    static func rgb(r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
-        return UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1)
+    // setup TableViewDataSource
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return filteredPullRequests.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! PullRequestsCell
+        
+        let pullRequest = filteredPullRequests[indexPath.item]
+        cell.pullRequest = pullRequest
+        
+        return cell
+    }
+    
+    // setup TableViewDelegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let pullReq = filteredPullRequests[indexPath.row]
+        let viewController = DiffsViewController()
+        viewController.number = pullReq.number
+        viewController.title = pullReq.title
+        
+        let nav = UINavigationController(rootViewController: viewController)
+        nav.modalPresentationStyle = .overFullScreen
+        present(nav, animated: true, completion: nil)
     }
 }
-
-

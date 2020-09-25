@@ -20,7 +20,6 @@ class PullRequestsCell: UITableViewCell {
     let compareIcon: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         imageView.image = UIImage(named: "compare-git")?.withTintColor(UIColor.rgb(r: 89, g: 184, b: 105))
-        imageView.tintColor = .green
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 15
         imageView.layer.masksToBounds = true
@@ -28,13 +27,7 @@ class PullRequestsCell: UITableViewCell {
         return imageView
     }()
     
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        super.setHighlighted(highlighted, animated: animated)
-        contentView.backgroundColor = isHighlighted ? .highlightColor : .white
-        textLabel?.textColor = isHighlighted ? UIColor.white : .mainTextBlue
-        detailTextLabel?.textColor = isHighlighted ? .white : .black
-    }
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         
@@ -49,7 +42,6 @@ class PullRequestsCell: UITableViewCell {
         imageView?.image = compareIcon.image
 
     }
-    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError()

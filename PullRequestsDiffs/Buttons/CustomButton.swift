@@ -6,7 +6,6 @@
 //  Copyright © 2020 Fahad Al. All rights reserved.
 //
 
-
 import UIKit
 
 class CustomButton: UIButton {
@@ -38,7 +37,7 @@ class CustomButton: UIButton {
         layer.cornerRadius = 10
         setTitleColor(.white, for: .normal)
         titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
-        translatesAutoresizingMaskIntoConstraints = false                   // Use Auto-layout
+        translatesAutoresizingMaskIntoConstraints = false                
     }
     
     func set(backgroundColor: UIColor, title: String) {
