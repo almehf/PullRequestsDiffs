@@ -1,5 +1,5 @@
 //
-//  Pulls.swift
+//  Pull.swift
 //  PullRequestsDiffs
 //
 //  Created by Fahad Almehawas  on 9/23/20.
@@ -9,12 +9,13 @@
 
 import Foundation
 
-enum RequestState : String, Decodable {
+enum RequestState : String, Codable {
     case closed = "closed"
     case open   = "open"
 }
 
-struct Pulls: Decodable {
+struct Pull: Codable, Hashable {
+    
     let title: String
     let state: RequestState
     let diff_url: String

@@ -18,7 +18,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = PullRequestsTableView()
+        let nav = UINavigationController()
+        let mainView = PullRequestsTableView()
+        nav.viewControllers = [mainView]
+        window?.rootViewController = nav
         window?.makeKeyAndVisible()
     }
     

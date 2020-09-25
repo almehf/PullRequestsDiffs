@@ -8,17 +8,18 @@
 
 import Foundation
 
-struct PullViewModel: Decodable {
+struct PullViewModel:  Codable, Hashable {
+    
      let title: String
      let state: RequestState
      let diff_url: String
      let number: Int
     
-    init(pulls: Pulls) {
-        self.title = pulls.title
-        self.state = pulls.state
-        self.diff_url = pulls.diff_url
-        self.number = pulls.number
+    init(pull: Pull) {
+        self.title = pull.title
+        self.state = pull.state
+        self.diff_url = pull.diff_url
+        self.number = pull.number
     }
 }
 

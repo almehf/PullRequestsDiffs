@@ -11,7 +11,7 @@ import UIKit
 class PullRequestsTableView: UITableViewController, URLSessionDelegate {
     
     
-    var pullRequests = [PullViewModel]()
+    var pullViewModel = [PullViewModel]()
     var filteredPullRequests = [PullViewModel]()
     fileprivate let cellId = "cellId"
     
@@ -32,8 +32,8 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
                 
             case .success(let pulls) :
                 
-                self.pullRequests = pulls.map({return PullViewModel(pulls: $0)})
-                self.filteredPullRequests = self.pullRequests
+                self.pullViewModel = pulls.map({return PullViewModel(pull: $0)})
+                self.filteredPullRequests = self.pullViewModel
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -43,25 +43,10 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
             }
         }
     }
-    
-    
-    
+ 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 100))
-        
-        
         headerView.backgroundColor = UIColor.rgb(r: 50, g: 147, b: 234)
-        let label = UILabel()
-        label.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
-        label.textAlignment = .center
-        label.text = "MagicalRecord"
-        label.textColor = UIColor.white
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        
-        
-        headerView.addSubview(label)
-        label.anchor(top: headerView.topAnchor, leading: headerView.leadingAnchor, bottom: nil, trailing: headerView.trailingAnchor, padding: .init(top: 6, left: 6, bottom: 6, right: 6), size: .zero)
-        
         setupSegmentedController(headerView: headerView)
         return headerView
     }
@@ -83,6 +68,7 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
         segementedController.anchor(top: nil, leading: headerView.leadingAnchor, bottom: headerView.bottomAnchor, trailing: headerView.trailingAnchor, padding: .init(top: 12, left: 12, bottom: 12, right: 12), size: .init(width: 120, height: 50))
     }
     
+    // Toggle state of pull (Open - Closed)
     @objc func toggleState(_ segmentedController: UISegmentedControl) {
         switch segmentedController.selectedSegmentIndex {
         case 0:
@@ -97,7 +83,7 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
     
     func fetchClosedPulls() {
         filteredPullRequests.removeAll()
-        filteredPullRequests = self.pullRequests.filter {(pull) -> Bool in
+        filteredPullRequests = self.pullViewModel.filter {(pull) -> Bool in
             print(pull.state.rawValue )
             return pull.state.rawValue == RequestState.closed.rawValue
         }
@@ -107,7 +93,7 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
     
     func fetchOpenedPulls() {
         filteredPullRequests.removeAll()
-        filteredPullRequests = self.pullRequests.filter {(pull) -> Bool in
+        filteredPullRequests = self.pullViewModel.filter {(pull) -> Bool in
             print(pull.state.rawValue )
             return pull.state.rawValue == RequestState.open.rawValue
         }
@@ -127,11 +113,12 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
     }
     
     fileprivate func setupNavBar() {
-        navigationItem.title = "Pull request"
+        navigationItem.title = "MagicalRecord"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.backgroundColor = .yellow
+        //        UIColor.rgb(r: 50, g: 147, b: 234)
+        navigationController?.navigationBar.backgroundColor = UIColor.rgb(r: 50, g: 147, b: 234)
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = UIColor.rgb(r: 50, g: 199, b: 242)
+        navigationController?.navigationBar.barTintColor = UIColor.rgb(r: 50, g: 147, b: 234)
         navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
@@ -142,7 +129,7 @@ class CustomNavigationController: UINavigationController {
         return .lightContent
     }
 }
- 
+
 extension PullRequestsTableView {
     
     // setup TableViewDataSource
@@ -155,21 +142,20 @@ extension PullRequestsTableView {
         
         let pullRequest = filteredPullRequests[indexPath.item]
         cell.pullRequest = pullRequest
-        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
     // setup TableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let pullReq = filteredPullRequests[indexPath.row]
+        let pullReq = pullViewModel[indexPath.row]
         let viewController = DiffsViewController()
-        viewController.number = pullReq.number
-        viewController.title = pullReq.title
-        
-        let nav = UINavigationController(rootViewController: viewController)
-        nav.modalPresentationStyle = .overFullScreen
-        present(nav, animated: true, completion: nil)
+        viewController.currentPR = pullReq
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
