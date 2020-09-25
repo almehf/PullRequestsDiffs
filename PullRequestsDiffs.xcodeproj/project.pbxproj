@@ -25,6 +25,7 @@
 		4079DB2E251C483B00C2906A /* PullsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DB2D251C483B00C2906A /* PullsViewModel.swift */; };
 		4079DB30251D061100C2906A /* PullRequestsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DB2F251D061100C2906A /* PullRequestsTableView.swift */; };
 		4079DB32251D065200C2906A /* PullRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079DB31251D065200C2906A /* PullRequestCell.swift */; };
+		40A1A6E4251D9AFE007B44E7 /* LayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A1A6E3251D9AFE007B44E7 /* LayoutHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		4079DB2D251C483B00C2906A /* PullsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullsViewModel.swift; sourceTree = "<group>"; };
 		4079DB2F251D061100C2906A /* PullRequestsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsTableView.swift; sourceTree = "<group>"; };
 		4079DB31251D065200C2906A /* PullRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestCell.swift; sourceTree = "<group>"; };
+		40A1A6E3251D9AFE007B44E7 /* LayoutHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		4079DAFA251C219E00C2906A /* PullRequestsDiffs */ = {
 			isa = PBXGroup;
 			children = (
+				40A1A6E2251D9AE8007B44E7 /* Helper */,
 				4079DB0F251C243E00C2906A /* Service */,
 				4079DB10251C244900C2906A /* Model */,
 				4079DB12251C246100C2906A /* ViewModel */,
@@ -184,6 +187,14 @@
 			path = Labels;
 			sourceTree = "<group>";
 		};
+		40A1A6E2251D9AE8007B44E7 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				40A1A6E3251D9AFE007B44E7 /* LayoutHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		ED0E24F69B35CF4DBA103AD6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +289,7 @@
 				4079DB26251C2DDB00C2906A /* Service.swift in Sources */,
 				4079DB22251C283900C2906A /* SecondaryTitleLabel.swift in Sources */,
 				4079DAFE251C219E00C2906A /* SceneDelegate.swift in Sources */,
+				40A1A6E4251D9AFE007B44E7 /* LayoutHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
