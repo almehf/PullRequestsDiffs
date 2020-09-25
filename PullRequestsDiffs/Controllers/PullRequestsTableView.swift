@@ -46,20 +46,21 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 100))
+ 
         
-        headerView.backgroundColor = .lightGray
+        headerView.backgroundColor = UIColor.rgb(r: 50, g: 147, b: 234)
         let label = UILabel()
         label.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
         label.textAlignment = .center
         label.text = "MagicalRecord"
-        label.textColor = UIColor.black // my custom colour
+        label.textColor = UIColor.white
         label.font = UIFont.boldSystemFont(ofSize: 18)
         
+       
+        headerView.addSubview(label)
+        label.anchor(top: headerView.topAnchor, leading: headerView.leadingAnchor, bottom: nil, trailing: headerView.trailingAnchor, padding: .init(top: 6, left: 6, bottom: 6, right: 6), size: .zero)
         
         setupSegmentedController(headerView: headerView)
-        headerView.addSubview(label)
-        label.anchor(top: headerView.topAnchor, leading: headerView.leadingAnchor, bottom: nil, trailing: headerView.trailingAnchor)
-        
         return headerView
     }
     
@@ -135,7 +136,7 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
         tableView.register(PullRequestsCell.self, forCellReuseIdentifier: cellId)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
         tableView.separatorColor = .mainTextBlue
-        tableView.backgroundColor = UIColor.rgb(r: 12, g: 47, b: 57)
+        tableView.backgroundColor = UIColor.rgb(r: 238, g: 238, b: 238)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
         tableView.sectionHeaderHeight = 100

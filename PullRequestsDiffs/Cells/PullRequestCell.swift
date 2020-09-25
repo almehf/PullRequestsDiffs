@@ -39,14 +39,15 @@ class PullRequestsCell: UITableViewCell {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         
         // cell customization
-        textLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         textLabel?.numberOfLines = 0
         detailTextLabel?.textColor = .black
-        detailTextLabel?.font = UIFont.systemFont(ofSize: 20, weight: .light)
+        detailTextLabel?.font = UIFont.systemFont(ofSize: 15, weight: .light)
+        imageView?.layer.cornerRadius = 5
+        imageView?.layer.borderWidth = 1
+        imageView?.layer.borderColor = UIColor.lightGray.cgColor
         imageView?.image = compareIcon.image
-//        imageView.i
-        
-        
+
     }
     
     
