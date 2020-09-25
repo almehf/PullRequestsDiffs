@@ -11,8 +11,8 @@ import UIKit
 class Service {
     
     static let shared = Service()
-//     "https://api.github.com/repos/magicalpanda/MagicalRecord/pulls"
-    private let baseURL = "https://api.github.com/repos/magicalpanda/MagicalRecord/pulls?state=all"
+//    "https://api.github.com/repos/magicalpanda/MagicalRecord/pulls?state=all"
+    private let baseURL = "https://api.github.com/repos/magicalpanda/MagicalRecord/pulls"
     
     
     
