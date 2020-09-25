@@ -43,13 +43,13 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
             }
         }
     }
- 
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 100))
-        headerView.backgroundColor = UIColor.rgb(r: 50, g: 147, b: 234)
-        setupSegmentedController(headerView: headerView)
-        return headerView
-    }
+    
+    //    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    //        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 100))
+    //        headerView.backgroundColor = UIColor.rgb(r: 50, g: 147, b: 234)
+    //        setupSegmentedController(headerView: headerView)
+    //        return headerView
+    //    }
     
     
     func setupSegmentedController(headerView: UIView) {
@@ -62,10 +62,11 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
         segementedController.selectedSegmentIndex = 0
         segementedController.backgroundColor = .white
         segementedController.layer.borderColor = UIColor.darkGray.cgColor
+        
         headerView.addSubview(segementedController)
         
         
-        segementedController.anchor(top: nil, leading: headerView.leadingAnchor, bottom: headerView.bottomAnchor, trailing: headerView.trailingAnchor, padding: .init(top: 12, left: 12, bottom: 12, right: 12), size: .init(width: 120, height: 50))
+        segementedController.anchor(top: headerView.topAnchor, leading: headerView.leadingAnchor, bottom: headerView.bottomAnchor, trailing: headerView.trailingAnchor, padding: UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20))
     }
     
     // Toggle state of pull (Open - Closed)
@@ -110,6 +111,11 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
         tableView.estimatedRowHeight = 100
         tableView.sectionHeaderHeight = 100
         tableView.tableFooterView = UIView()
+        
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 60))
+        headerView.backgroundColor = .systemGroupedBackground
+        setupSegmentedController(headerView: headerView)
+        tableView.tableHeaderView = headerView
     }
     
     fileprivate func setupNavBar() {
@@ -120,6 +126,7 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = UIColor.rgb(r: 50, g: 147, b: 234)
         navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        
     }
     
 }

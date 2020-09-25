@@ -11,7 +11,9 @@ import UIKit
 class Service {
     
     static let shared = Service()
-    private let baseURL = "https://api.github.com/repos/magicalpanda/MagicalRecord/pulls"
+//     "https://api.github.com/repos/magicalpanda/MagicalRecord/pulls"
+    private let baseURL = "https://api.github.com/repos/magicalpanda/MagicalRecord/pulls?state=all"
+    
     
     
     func getPulls(completionHandler: @escaping (Result<[Pull], PRError>) -> Void) {
