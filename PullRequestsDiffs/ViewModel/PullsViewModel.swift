@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct PullViewModel: Codable, Hashable {
+struct PullViewModel: Decodable {
      let title: String
-     let state: String
+     let state: RequestState
      let diff_url: String
      let number: Int
     

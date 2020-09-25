@@ -10,8 +10,9 @@ import UIKit
 
 class PullRequestsTableView: UITableViewController, URLSessionDelegate {
     
-
+    
     var pullRequests = [PullViewModel]()
+    var filteredPullRequests = [PullViewModel]()
     fileprivate let cellId = "cellId"
     
     
@@ -21,10 +22,7 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
         setupNavBar()
         setupTableView()
         fetchPullRequests()
-        tableView.sectionHeaderHeight = 100
-        
     }
-    
     
     func fetchPullRequests() {
         Service.shared.getPulls { [weak self] result in
@@ -34,20 +32,16 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
                 
             case .success(let pulls) :
                 
-                print("pull req is :\(pulls.count)")
-                
                 self.pullRequests = pulls.map({return PullViewModel(pulls: $0)})
+                self.filteredPullRequests = self.pullRequests
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
                 
             case .failure(let error) :
                 self.presentGFAlertOnMainThread(title: "Bad stuff happened", message: error.rawValue, buttonTitle: "Ok")
-                
-                
             }
         }
-        
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -61,7 +55,7 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
         label.textColor = UIColor.black // my custom colour
         label.font = UIFont.boldSystemFont(ofSize: 18)
         
-     
+        
         setupSegmentedController(headerView: headerView)
         headerView.addSubview(label)
         label.anchor(top: headerView.topAnchor, leading: headerView.leadingAnchor, bottom: nil, trailing: headerView.trailingAnchor)
@@ -72,45 +66,66 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
     
     func setupSegmentedController(headerView: UIView) {
         let items = [#imageLiteral(resourceName: "open"), #imageLiteral(resourceName: "close")]
-        let customSegmentedControll = UISegmentedControl(items: items)
-        customSegmentedControll.addTarget(self, action: #selector(toggleState(_:)), for: .valueChanged)
-        customSegmentedControll.translatesAutoresizingMaskIntoConstraints = false
-        customSegmentedControll.layer.cornerRadius = 10
-        customSegmentedControll.layer.borderWidth = 1
-        customSegmentedControll.layer.borderColor = UIColor.darkGray.cgColor
-        headerView.addSubview(customSegmentedControll)
+        let segementedController = UISegmentedControl(items: items)
+        segementedController.addTarget(self, action: #selector(toggleState(_:)), for: .valueChanged)
+        segementedController.translatesAutoresizingMaskIntoConstraints = false
+        segementedController.layer.cornerRadius = 10
+        segementedController.layer.borderWidth = 1
+        segementedController.backgroundColor = .white
+        segementedController.layer.borderColor = UIColor.darkGray.cgColor
+        headerView.addSubview(segementedController)
         
-
-        customSegmentedControll.anchor(top: nil, leading: headerView.leadingAnchor, bottom: headerView.bottomAnchor, trailing: headerView.trailingAnchor, padding: .init(top: 12, left: 12, bottom: 12, right: 12), size: .init(width: 120, height: 50))
+        
+        segementedController.anchor(top: nil, leading: headerView.leadingAnchor, bottom: headerView.bottomAnchor, trailing: headerView.trailingAnchor, padding: .init(top: 12, left: 12, bottom: 12, right: 12), size: .init(width: 120, height: 50))
     }
     
     @objc func toggleState(_ segmentedController: UISegmentedControl) {
         switch segmentedController.selectedSegmentIndex {
         case 0:
-            print("unlocked")
+            fetchOpenedPulls()
         case 1:
-            print("locked")
+            fetchClosedPulls()
         default:
-            print("unlocked")
+            print("default")
         }
     }
     
+    
+    func fetchClosedPulls() {
+        filteredPullRequests.removeAll()
+        filteredPullRequests = self.pullRequests.filter {(pull) -> Bool in
+            print(pull.state.rawValue )
+            return pull.state.rawValue == RequestState.closed.rawValue
+        }
+        tableView.reloadData()
+    }
+    
+    
+    func fetchOpenedPulls() {
+        filteredPullRequests.removeAll()
+        filteredPullRequests = self.pullRequests.filter {(pull) -> Bool in
+            print(pull.state.rawValue )
+            return pull.state.rawValue == RequestState.open.rawValue
+        }
+        tableView.reloadData()
+    }
+    
+ 
     // Show diffs when tapped
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("didSelect")
         
         
-        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pullRequests.count
+        return filteredPullRequests.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! PullRequestsCell
         
-        let pullRequest = pullRequests[indexPath.item]
+        let pullRequest = filteredPullRequests[indexPath.item]
         cell.pullRequest = pullRequest
         
         return cell
@@ -123,6 +138,7 @@ class PullRequestsTableView: UITableViewController, URLSessionDelegate {
         tableView.backgroundColor = UIColor.rgb(r: 12, g: 47, b: 57)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
+        tableView.sectionHeaderHeight = 100
         tableView.tableFooterView = UIView()
     }
     

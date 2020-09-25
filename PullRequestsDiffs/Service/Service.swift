@@ -14,7 +14,7 @@ class Service {
     private let baseURL = "https://api.github.com/repos/magicalpanda/MagicalRecord/pulls"
     private let secondUrl = "https://api.github.com/repos/magicalpanda/MagicalRecord/pulls?state=all"
     
-     
+    
     func getPulls(completionHandler: @escaping (Result<[Pulls], PRError>) -> Void) {
         let endpoint = secondUrl
         
@@ -46,12 +46,11 @@ class Service {
                 
                 print("pull req is :\(pullReq.count)")
                 
-                let openedPullRequest = pullReq.filter { (p) -> Bool in
-                    p.state == "open"
-                }
-                
-                 print("pull req afteris :\(openedPullRequest.count)")
-                completionHandler(.success(openedPullRequest))
+//                let openedPullRequest = pullReq.filter { (p) -> Bool in
+//                    p.state == "open"
+//                }
+//                print("pull req afteris :\(openedPullRequest.count)")
+                completionHandler(.success(pullReq))
                 return
             } catch {
                 print("err")
@@ -63,3 +62,4 @@ class Service {
     }
 }
 
+ 
