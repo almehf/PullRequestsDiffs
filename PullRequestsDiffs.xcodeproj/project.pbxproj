@@ -33,7 +33,7 @@
 		40A1A6FA251E0DF6007B44E7 /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A1A6F9251E0DF6007B44E7 /* SectionCell.swift */; };
 		40A1A6FC251E0E1D007B44E7 /* FileNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A1A6FB251E0E1D007B44E7 /* FileNameCell.swift */; };
 		40A1A6FE251E0E48007B44E7 /* DiffRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A1A6FD251E0E48007B44E7 /* DiffRowCell.swift */; };
-		40A1A702251E2190007B44E7 /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = 40A1A700251E2190007B44E7 /* image1.png */; };
+		40A1A702251E2190007B44E7 /* screenShotOne.png in Resources */ = {isa = PBXBuildFile; fileRef = 40A1A700251E2190007B44E7 /* screenShotOne.png */; };
 		40A1A703251E2190007B44E7 /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = 40A1A701251E2190007B44E7 /* image2.png */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +66,7 @@
 		40A1A6F9251E0DF6007B44E7 /* SectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
 		40A1A6FB251E0E1D007B44E7 /* FileNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileNameCell.swift; sourceTree = "<group>"; };
 		40A1A6FD251E0E48007B44E7 /* DiffRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffRowCell.swift; sourceTree = "<group>"; };
-		40A1A700251E2190007B44E7 /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
+		40A1A700251E2190007B44E7 /* screenShotOne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenShotOne.png; sourceTree = "<group>"; };
 		40A1A701251E2190007B44E7 /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,7 +232,7 @@
 		40A1A6FF251E216D007B44E7 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				40A1A700251E2190007B44E7 /* image1.png */,
+				40A1A700251E2190007B44E7 /* screenShotOne.png */,
 				40A1A701251E2190007B44E7 /* image2.png */,
 			);
 			path = images;
@@ -306,7 +306,7 @@
 			files = (
 				4079DB08251C21A000C2906A /* LaunchScreen.storyboard in Resources */,
 				40A1A703251E2190007B44E7 /* image2.png in Resources */,
-				40A1A702251E2190007B44E7 /* image1.png in Resources */,
+				40A1A702251E2190007B44E7 /* screenShotOne.png in Resources */,
 				4079DB05251C21A000C2906A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
