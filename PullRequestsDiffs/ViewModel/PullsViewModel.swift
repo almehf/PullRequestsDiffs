@@ -22,4 +22,3 @@ struct PullViewModel:  Codable, Hashable {
         self.number = pull.number
     }
 }
-
